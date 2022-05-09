@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relclubee" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4d8e908f-af19-4642-9942-9354b7ebdaa2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     socio.`COD` AS socio_COD,
+     socio.`NOME` AS socio_NOME,
+     socio.`CEP` AS socio_CEP,
+     socio.`UF` AS socio_UF,
+     socio.`RG` AS socio_RG
+FROM
+     `socio` socio]]>
+	</queryString>
+	<field name="socio_COD" class="java.lang.Integer"/>
+	<field name="socio_NOME" class="java.lang.String"/>
+	<field name="socio_CEP" class="java.lang.String"/>
+	<field name="socio_UF" class="java.lang.String"/>
+	<field name="socio_RG" class="java.lang.String"/>
+	<group name="socio_COD">
+		<groupExpression><![CDATA[$F{socio_COD}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="139" y="34" width="284" height="45" uuid="b135d8e5-ca6b-407b-a76f-27f5c93339d1"/>
+				<textElement>
+					<font size="32"/>
+				</textElement>
+				<text><![CDATA[Geracao de boleto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="59" width="100" height="20" uuid="13037314-1226-46d6-83df-60cd8e0f8644"/>
+				<text><![CDATA[CHAVE PIX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="0" width="181" height="34" uuid="7ad76a66-fbf3-4d92-b7a8-af09657dc25e"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[CLUBE SAMAMBAIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="0" width="170" height="34" uuid="f90c52c1-b279-489a-b9d5-538986e98ca8"/>
+				<textElement>
+					<font size="18" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[CNPJ-72712131-21]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="39" y="15" width="100" height="20" uuid="41870eb3-5eee-4e76-9a52-3f091613a9e0"/>
+				<textFieldExpression><![CDATA[$F{socio_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="15" width="100" height="20" uuid="49d69ffa-bd30-4030-8520-300f7e95311f"/>
+				<textFieldExpression><![CDATA[$F{socio_CEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="15" width="100" height="20" uuid="da1a28a9-b6b1-4f7f-8b88-55ca6c25b240"/>
+				<textFieldExpression><![CDATA[$F{socio_RG}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

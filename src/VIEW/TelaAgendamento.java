@@ -5,6 +5,7 @@
 package VIEW;
 
 import DAL.ModuloConexao;
+import java.io.Console;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
@@ -330,6 +331,13 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
                 + "(?, ?, ?, ?, ?, ?)";
 
         try {
+            if(pesquisar_disponibilidade() > 0){
+                JOptionPane.showMessageDialog(null, "Agendamento nao Cadastrado por indisponibilidade de horário");
+                return;
+            }
+            pst.clearParameters();
+            
+            
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtMatriculaSocio.getText());
             pst.setString(2, modalidadeAgendamento.getSelectedItem().toString());
@@ -338,13 +346,16 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
             pst.setString(5, horaAgendamento.getSelectedItem().toString());
             pst.setInt(6, 0);
             
-            System.out.println("pst");
-
+            System.out.println(pst);
+            
+            
             int resultado = pst.executeUpdate();
+            
+
 
             if (resultado == 1) {
                 JOptionPane.showMessageDialog(null, "Pré-Agendamento Cadastrado");
-                txtCodigoReserva.setText(null);
+                //txtCodigoReserva.setText(null);
                 txtMatriculaSocio.setText(null);                
                 InstalacaoAgendamento.setSelectedItem(null);
                 dataAgendamento.setText(null);
@@ -357,6 +368,7 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
             }
 
         } catch (SQLException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
         }
 
@@ -376,12 +388,34 @@ public class TelaAgendamento extends javax.swing.JInternalFrame {
             
         } catch (Exception e) {
             
-        }
+        }   
+    }
     
-    
-    
-    
-    
+        private int pesquisar_disponibilidade() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = " SELECT count(1) as resultado FROM agendamento where data like ? and hora like ? and instalacao like ? ";
+   
+        try {
+            pst = conexao.prepareStatement(sql); pst.setString(3, InstalacaoAgendamento.getSelectedItem().toString());            
+            pst.setString(1, dataAgendamento.getText());
+            pst.setString(2, horaAgendamento.getSelectedItem().toString());
+            
+            System.out.println(" Pesquisar disponibilidade: " + pst);
+            
+            rs = pst.executeQuery();
+            int resultado=0;
+            
+            if (rs.next()){
+                resultado = rs.getInt("resultado");
+            }
+            
+            System.out.println("Resultado: " + resultado);
+            
+            return resultado;
+            
+        } catch (Exception e) {
+            return 0;
+        }   
     }
 
     private void buscar_dados_agendamento() {
