@@ -34,13 +34,11 @@ public class Principal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         Automoveis = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        Ocorrencia = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         Ajuda = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema Seguradora Auto");
+        setTitle("Clube Samambaia");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,7 +56,7 @@ public class Principal extends javax.swing.JFrame {
 
         getContentPane().add(JdbPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 530));
 
-        Cliente.setText("Cliente");
+        Cliente.setText("Agendamento");
         Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClienteActionPerformed(evt);
@@ -90,23 +88,6 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(Automoveis);
 
-        Ocorrencia.setText("Ocorrencia");
-        Ocorrencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OcorrenciaActionPerformed(evt);
-            }
-        });
-
-        jMenuItem3.setText("Ocorrencias");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        Ocorrencia.add(jMenuItem3);
-
-        jMenuBar1.add(Ocorrencia);
-
         Ajuda.setText("Ajuda");
         jMenuBar1.add(Ajuda);
 
@@ -121,7 +102,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void IMenuClienteAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IMenuClienteAbrirActionPerformed
         // TODO add your handling code here:
-        TelaCliente carregar = new TelaCliente();
+        TelaAgendamento carregar = new TelaAgendamento();
         JdbPrincipal.add(carregar);
         carregar.setVisible(true);
     }//GEN-LAST:event_IMenuClienteAbrirActionPerformed
@@ -137,18 +118,6 @@ public class Principal extends javax.swing.JFrame {
         JdbPrincipal.add(carregar);
         carregar.setVisible(true);        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void OcorrenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OcorrenciaActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_OcorrenciaActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        TelaOcorrencia carregar = new TelaOcorrencia();
-        JdbPrincipal.add(carregar);
-        carregar.setVisible(true); 
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,12 +160,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu Cliente;
     private javax.swing.JMenuItem IMenuClienteAbrir;
     private javax.swing.JDesktopPane JdbPrincipal;
-    private javax.swing.JMenu Ocorrencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
