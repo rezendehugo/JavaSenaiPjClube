@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl"><name>PJseguradora</name><driver>com.mysql.jdbc.Driver</driver><username>root</username><password></password><savePassword>true</savePassword><url>jdbc:mysql://localhost:3306/pjseguradora</url><database></database><serverAddress></serverAddress><classpath>D:\Users\hugor\OneDrive\Documentos\mysql-connector-java-8.0.26.jar</classpath></jdbcDataAdapter>
